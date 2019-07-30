@@ -1,0 +1,394 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.37.0",
+  "hash": "acaec7403d0838f4c269",
+  "publicPath": "/public/",
+  "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+  "assetsByChunkName": {
+    "app~d0ae3f07": [
+      "static/css/app~d0ae3f07.d50960ea.chunk.css",
+      "app~d0ae3f07.acae.js"
+    ],
+    "runtime~app": "runtime~app.acae.js",
+    "vendors~app~0928ebd2": "vendors~app~0928ebd2.acae.js",
+    "vendors~app~10e2e882": "vendors~app~10e2e882.acae.js",
+    "vendors~app~253ae210": "vendors~app~253ae210.acae.js",
+    "vendors~app~678f84af": "vendors~app~678f84af.acae.js",
+    "vendors~app~9d180afe": "vendors~app~9d180afe.acae.js",
+    "vendors~app~db300d2f": "vendors~app~db300d2f.acae.js"
+  },
+  "assets": [
+    {
+      "name": "app~d0ae3f07.acae.js",
+      "size": 10723,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "app~d0ae3f07"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "index.html",
+      "size": 989,
+      "chunks": [],
+      "chunkNames": [],
+      "emitted": false
+    },
+    {
+      "name": "runtime~app.acae.js",
+      "size": 1487,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "runtime~app"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "server.ejs",
+      "size": 1112,
+      "chunks": [],
+      "chunkNames": [],
+      "emitted": false
+    },
+    {
+      "name": "static/css/app~d0ae3f07.d50960ea.chunk.css",
+      "size": 114,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "app~d0ae3f07"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~0928ebd2.acae.js",
+      "size": 106232,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "vendors~app~0928ebd2"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~10e2e882.acae.js",
+      "size": 17747,
+      "chunks": [
+        3
+      ],
+      "chunkNames": [
+        "vendors~app~10e2e882"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~253ae210.acae.js",
+      "size": 37269,
+      "chunks": [
+        4
+      ],
+      "chunkNames": [
+        "vendors~app~253ae210"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~678f84af.acae.js",
+      "size": 25633,
+      "chunks": [
+        5
+      ],
+      "chunkNames": [
+        "vendors~app~678f84af"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~9d180afe.acae.js",
+      "size": 45333,
+      "chunks": [
+        6
+      ],
+      "chunkNames": [
+        "vendors~app~9d180afe"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendors~app~db300d2f.acae.js",
+      "size": 26249,
+      "chunks": [
+        7
+      ],
+      "chunkNames": [
+        "vendors~app~db300d2f"
+      ],
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "app": {
+      "chunks": [
+        1,
+        4,
+        7,
+        6,
+        5,
+        3,
+        2,
+        0
+      ],
+      "assets": [
+        "runtime~app.acae.js",
+        "vendors~app~253ae210.acae.js",
+        "vendors~app~db300d2f.acae.js",
+        "vendors~app~9d180afe.acae.js",
+        "vendors~app~678f84af.acae.js",
+        "vendors~app~10e2e882.acae.js",
+        "vendors~app~0928ebd2.acae.js",
+        "static/css/app~d0ae3f07.d50960ea.chunk.css",
+        "app~d0ae3f07.acae.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "app": {
+      "chunks": [
+        1,
+        4,
+        7,
+        6,
+        5,
+        3,
+        2,
+        0
+      ],
+      "assets": [
+        "runtime~app.acae.js",
+        "vendors~app~253ae210.acae.js",
+        "vendors~app~db300d2f.acae.js",
+        "vendors~app~9d180afe.acae.js",
+        "vendors~app~678f84af.acae.js",
+        "vendors~app~10e2e882.acae.js",
+        "vendors~app~0928ebd2.acae.js",
+        "static/css/app~d0ae3f07.d50960ea.chunk.css",
+        "app~d0ae3f07.acae.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {},
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/public/",
+      "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+      "assetsByChunkName": {},
+      "assets": [
+        {
+          "name": "index.html",
+          "size": 545927,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [],
+          "emitted": false
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "undefined": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "index.html"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "undefined": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "index.html"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {},
+      "children": [],
+      "name": "html-webpack-plugin for \"index.html\""
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/public/",
+      "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+      "assetsByChunkName": {},
+      "assets": [
+        {
+          "name": "server.ejs",
+          "size": 6134,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [],
+          "emitted": false
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "undefined": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "server.ejs"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "undefined": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "server.ejs"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {},
+      "children": [],
+      "name": "html-webpack-plugin for \"server.ejs\""
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/public/",
+      "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {},
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/typings-for-css-modules-loader/lib/index.js??ref--7-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/less-loader/dist/cjs.js??ref--7-3!src/containers/Home/index.m.less"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/public/",
+      "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {},
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/typings-for-css-modules-loader/lib/index.js??ref--7-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/less-loader/dist/cjs.js??ref--7-3!src/containers/TopicDetail/index.m.less"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/public/",
+      "outputPath": "/Users/lvyifan/project/react-blog-nuxt/dist-client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {},
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/typings-for-css-modules-loader/lib/index.js??ref--7-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/less-loader/dist/cjs.js??ref--7-3!src/containers/TopicList/index.m.less"
+    }
+  ]
+}
