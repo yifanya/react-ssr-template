@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { StaticRouter } from 'react-router-dom';
-import { Provider, useStaticRendering } from 'mobx-react';
+import { Provider } from 'react-redux';
 import App from './app';
-import { createStore } from './store/store';
+import createStore from './store/store';
 import routersConfig from './config/routers';
 import RouterView from './components/RouterView';
+import { Store } from 'redux';
 
-useStaticRendering(true);
-export default (stores:any, routerContext:any, url:any ) => {
+export default (store: Store, routerContext:any, url:any ) => {
   const Container: any = () => {
     return (
-      <Provider {...stores}>
+      <Provider store={store}>
         <StaticRouter context={routerContext} location={url}>
           <App />
           <RouterView routers={routersConfig as Array<IRouter>} />
@@ -18,7 +18,6 @@ export default (stores:any, routerContext:any, url:any ) => {
       </Provider>
     )
   }
-
   return <Container />
 }
 

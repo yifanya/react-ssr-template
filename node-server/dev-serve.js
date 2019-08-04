@@ -13,6 +13,7 @@ const { matchRoutes } = require('react-router-config');
 const { Helmet } = require("react-helmet");
 const NativeModule = require('module');
 const vm = require('vm');
+const { END } = require('redux-saga');
 
 const mfs = new memoryFS();
 const serverCompiler = webpack(serverConfig);
@@ -78,15 +79,11 @@ serverCompiler.watch({}, (err, stats) => {
   serverBundle = m.exports.default;
   createStore = m.exports.createStore;
   routersConfig = m.exports.routersConfig;
-
   console.log('bundle end~~~~~~~')
 })
 
 const getInitialState = (store) => {
-  return Object.keys(store).reduce((result, storeName) => {
-    result[storeName] = store[storeName].toJson();
-    return result;
-  }, {})
+  return store.getState();
 }
 
 const getSEOElement = () => {
@@ -95,6 +92,13 @@ const getSEOElement = () => {
     title: head.title.toString(),
     meta: head.meta.toString(),
     link: head.meta.toString()
+  }
+}
+
+const throwError = (obj, cause) => {
+  if (obj instanceof Error) {
+    console.log(cause)
+    throw obj;
   }
 }
 
@@ -112,7 +116,7 @@ module.exports = function (app) {
     const template = await getTemplate();
 
     const routerContext = {};
-    const store = createStore();
+    const { store, sagaTask } = createStore();
     const app = serverBundle(store, routerContext, req.url);
 
     const content = ReactSSR.renderToString(
@@ -134,11 +138,15 @@ module.exports = function (app) {
     }).filter(Boolean);
 
     const asyncDatas =  await Promise.all(routesAsyncData);
-    if (asyncDatas instanceof Error) {
-      console.log('asyncDatas error!!!')
-      throw asyncDatas;
-    }
+    throwError(asyncDatas, 'asyncDatas Errors')
+
+    store.dispatch(END);
+    const sagasResult = await sagaTask.toPromise();
+    throwError(sagasResult, 'Sagas Task Errors')
+    console.log('sagas task end')
+    // 终止sagas
     const initialState = getInitialState(store);
+    console.log('get initial state end', initialState);
     const SEO = getSEOElement();
 
     const html = ejs.render(template, {

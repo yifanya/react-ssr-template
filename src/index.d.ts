@@ -1,6 +1,7 @@
 interface Window {
   __INITIAL_STATE__  : object
-  stores: object
+  stores: object,
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: any,
 }
 
 interface IRouter {
@@ -9,6 +10,11 @@ interface IRouter {
   routes?: Array<IRouter>,
   redirect?: string,
   exact?: boolean
+}
+
+interface Action {
+  type: string,
+  data?: any 
 }
 
 declare module '@loadable/component';

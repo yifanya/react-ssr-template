@@ -1,5 +1,7 @@
 import loadable from "@loadable/component";
 import RouterView from '../components/RouterView';
+import * as TopicListAction from '../containers/TopicList/actions';
+import { Store } from 'redux';
 
 const routers = [
   {
@@ -14,8 +16,10 @@ const routers = [
   {
     path: '/list',
     component: loadable(() => import('../containers/TopicList')),
-    asyncData(state: any) {
-      state.AppState.changeName();
+    asyncData(store: Store) {
+      store.dispatch({
+        type: TopicListAction.ADDNUMBER
+      })
     }
   },
   {
@@ -25,15 +29,17 @@ const routers = [
       {
         path: '/son1',
         component: loadable(() => import('../containers/Son1')),
-        asyncData(store: any) {
-          store.AppState.changeAge(20);
+        asyncData(store: Store) {
+          store.dispatch({
+            type: TopicListAction.ASYNCADDNUMBER
+          })
         },
         routes: [
           {
             path: '/sonson2',
             component: loadable(() => import('../containers/Son2')),
-            asyncData(store: any) {
-              store.AppState.changeName('/test/son1/sonson2')
+            asyncData(store: Store) {
+              console.log('store', store);
             }
           },
           {

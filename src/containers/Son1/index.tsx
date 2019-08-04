@@ -20,9 +20,9 @@ class SonComponent extends React.Component<TopicDetailProps, TopicDetailState> {
   }
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
-    console.log('static getDerivedStateFromProps');
-    console.log('nextProps', nextProps);
-    console.log('prevState', prevState);
+    // console.log('static getDerivedStateFromProps');
+    // console.log('nextProps', nextProps);
+    // console.log('prevState', prevState);
     // 挂载 或者 更新 调用
     return null;
   }
@@ -49,21 +49,21 @@ class SonComponent extends React.Component<TopicDetailProps, TopicDetailState> {
   }
 
   shouldComponentUpdate(nextProps: TopicDetailProps, nextState: TopicDetailState) {
-    console.log('shouldComponentUpdate');
+    // console.log('shouldComponentUpdate');
     return true
   }
 
   getSnapshotBeforeUpdate(prevProps: TopicDetailProps, prevState: TopicDetailState) {
-    console.log('getSnapshotBeforeUpdate');
+    // console.log('getSnapshotBeforeUpdate');
     return {a:'a'}
   }
   componentDidUpdate (prevProps: TopicDetailProps, prevState: TopicDetailState, params: any) {
-    console.log('params', params);
-    console.log('componentDidUpdate');
+    // console.log('params', params);
+    // console.log('componentDidUpdate');
   }
 
   componentWillUnmount () {
-    console.log('componentWillUnmount')
+    // console.log('componentWillUnmount')
   }
 }
 

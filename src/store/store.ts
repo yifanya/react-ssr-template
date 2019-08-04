@@ -1,14 +1,31 @@
-import AppStateClass from './app.state';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducers from './reducers';
+import createSagaMiddleware from 'redux-saga';
+import rootSagas from './sagas';
 
 
-export const AppState = AppStateClass;
+const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
-export default {
-  AppState
-}
-
-export const createStore = (initialState: any = {}) => {
+export default function (initialState: object = {}) {
+const sagaMiddleware = createSagaMiddleware();
+  let store = null;
+  if (initialState) {
+    store = createStore(
+      reducers,
+      initialState,
+      composeEnhancers(applyMiddleware(sagaMiddleware))
+    )
+  }
+  else {
+    store =  createStore(
+      reducers,
+      composeEnhancers(applyMiddleware(sagaMiddleware))
+    )
+  }
+  const sagaTask = sagaMiddleware.run(rootSagas);
   return {
-    AppState: new AppStateClass(initialState.AppState || {})
+    store,
+    sagaTask
   }
 }
