@@ -3,11 +3,11 @@ React服务器端渲染，ts版本包含mobx/redux+redux-saga两种版本，按�
 
 # command
 ## development
-npm run dev:client 开启webpack-dev-server。 
-npm run dev:server 开启服务器端development版本。
+npm run dev:client 开启webpack-dev-server  
+npm run dev:server 开启服务器端development版本
 
 ## production
-npm run build 打包文件
+npm run build 打包文件  
 npm run start 开启服务器端production版本。
 
 # entry
