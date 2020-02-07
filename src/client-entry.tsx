@@ -28,7 +28,7 @@ function Component () {
 const Container = hot(Component);
 
 loadableReady().then(() => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <Container />,
     document.getElementById('root')
   )
