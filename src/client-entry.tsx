@@ -2,21 +2,26 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader/root';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'mobx-react';
 import App from './app';
-import { createStore } from './store/store';
 import RouterView from './components/RouterView';
 import routersConfig from './config/routers';
 import { loadableReady } from "@loadable/component";
+import { Provider } from 'react-redux';
+import createStore from './store/store';
+import { Store } from 'redux';
+import { Task } from 'redux-saga';
 
 const initialState = window.__INITIAL_STATE__  || {};
 // const stores = createStore(initialState);
-window.stores = window.stores || createStore(initialState)
-const stores = window.stores;
+const { store, sagaTask }: { store: Store, sagaTask: Task }= createStore(initialState);
+window.stores = window.stores || store;
+(window as any).sagaTask = sagaTask;
+const stores = window.stores as Store;
+sagaTask.toPromise().then(data => console.log('saga end promise', data))
 
 function Component () {
   return (
-    <Provider {...stores}>
+    <Provider store={stores}>
       <BrowserRouter>
         <App />
         <RouterView routers={routersConfig as Array<IRouter>} />

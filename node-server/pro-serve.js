@@ -7,6 +7,7 @@ const ReactSSR = require('react-dom/server');
 const { matchRoutes } = require('react-router-config');
 const React = require('react');
 const { Helmet } = require("react-helmet");
+const { END } = require('redux-saga');
 
 const getFile = p => new Promise((resolve, reject) => {
   fs.readFile(path.join(__dirname, p), 'utf8', (err, data) => {
@@ -21,6 +22,13 @@ const getSEOElement = () => {
     title: head.title.toString(),
     meta: head.meta.toString(),
     link: head.meta.toString()
+  }
+}
+
+const throwError = (obj, cause) => {
+  if (obj instanceof Error) {
+    console.log(cause)
+    throw obj;
   }
 }
 
@@ -41,10 +49,7 @@ module.exports = function (app) {
 
   // 获取初始化的state
   const getInitialState = (store) => {
-    return Object.keys(store).reduce((result, storeName) => {
-      result[storeName] = store[storeName].toJson();
-      return result;
-    }, {})
+    return store.getState();
   }
 
   app.use('/public', express.static(path.join(__dirname, '../dist-client')));
@@ -72,13 +77,16 @@ module.exports = function (app) {
       return asyncData && asyncData(store, Object.assign(match.params, req.query))
     }).filter(Boolean);
     const asyncDatas =  await Promise.all(routesAsyncData);
-    if (asyncDatas instanceof Error) {
-      console.log('asyncDatas error!!!')
-      throw asyncDatas;
-    }
+    throwError(asyncDatas, 'asyncDatas Errors')
+
+    store.dispatch(END);
+    const sagasResult = await sagaTask.toPromise();
+    throwError(sagasResult, 'Sagas Task Errors')
 
     // 然后将所有store的数据转换成对象
     const initialState = getInitialState(store);
+    console.log('get initial state end', initialState);
+
     const SEO = getSEOElement();
 
     const html = ejs.render(template, {
