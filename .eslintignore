@@ -1,0 +1,5 @@
+config/*
+localLoader/*
+localPlugins/*
+scripts/*
+build/*

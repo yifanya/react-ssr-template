@@ -1,0 +1,11 @@
+{
+	"extends": "eslint-config-ali/typescript/react",
+	"rules": {
+		"indent": [
+			"error", "tab"
+		],
+		"@typescript-eslint/indent": ["error", "tab"],
+		"no-tabs": "off",
+		"react/jsx-indent": ["error", "tab", { "indentLogicalExpressions": true }]
+	}
+}
