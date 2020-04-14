@@ -37,9 +37,8 @@ module.exports = function (webpackEnv) {
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
 			},
-			"@teamsupercell/typings-for-css-modules-loader",
       {
-        loader: require.resolve('css-loader'),
+        loader: 'typings-css-modules-loader',
         options: cssOptions,
       },
       {
@@ -70,9 +69,9 @@ module.exports = function (webpackEnv) {
           },
         },
         {
-          loader: require.resolve(preProcessor),
+          loader: preProcessor,
           options: {
-            sourceMap: true,
+            sourceMap: isEnvDevelopment,
           },
         }
       );
@@ -219,7 +218,7 @@ module.exports = function (webpackEnv) {
 							exclude: sassModuleRegex,
 							use: getStyleLoaders(
 								{
-									importLoaders: 3,
+									importLoaders: 2,
 									sourceMap: isEnvDevelopment,
 								},
 								'sass-loader'
@@ -230,7 +229,7 @@ module.exports = function (webpackEnv) {
 							test: sassModuleRegex,
 							use: getStyleLoaders(
 								{
-									importLoaders: 3,
+									importLoaders: 2,
 									sourceMap: isEnvDevelopment,
 									modules: {
 										getLocalIdent: getCSSModuleLocalIdent,
@@ -241,10 +240,10 @@ module.exports = function (webpackEnv) {
 						},
 						{
 							test: lessRegex,
-							exclude: sassModuleRegex,
+							exclude: lessModuleRegex,
 							use: getStyleLoaders(
 								{
-									importLoaders: 3,
+									importLoaders: 2,
 									sourceMap: isEnvDevelopment,
 								},
 								'less-loader'
@@ -255,7 +254,7 @@ module.exports = function (webpackEnv) {
 							test: lessModuleRegex,
 							use: getStyleLoaders(
 								{
-									importLoaders: 3,
+									importLoaders: 2,
 									sourceMap: isEnvDevelopment,
 									modules: {
 										getLocalIdent: getCSSModuleLocalIdent,

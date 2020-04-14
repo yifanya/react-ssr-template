@@ -1,7 +1,5 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import './index.less';
-import * as m from './index.m.less';
 
 interface IHello {
 	content: string
@@ -9,7 +7,7 @@ interface IHello {
 
 const Hello = (props: IHello) => {
 	return (
-		<div className={m.lalala}>
+		<div>
 			{ props.content }
 		</div>
 	);
