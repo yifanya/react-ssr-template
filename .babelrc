@@ -2,7 +2,6 @@
   "presets": ["@babel/react","@babel/env"],
   "plugins": [
     "@babel/plugin-transform-exponentiation-operator",
-    ["@babel/plugin-proposal-decorators",{"legacy":true}],
     ["@babel/plugin-proposal-class-properties", { "loose" : true }],
     "react-hot-loader/babel",
     "dynamic-import-node",

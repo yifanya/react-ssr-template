@@ -2,6 +2,7 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const paths = require('./paths');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const PurifyCssWebpack = require('purifycss-webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -36,7 +37,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
       loader: MiniCssExtractPlugin.loader,
     },
     {
-      loader: require.resolve('typings-for-css-modules-loader'),
+      loader: require.resolve('typings-css-modules-loader'),
       options: cssOptions,
     },
     {
@@ -157,7 +158,7 @@ let webpackConfig = {
         },
         async: {
           chunks: 'async',
-          priority: 0          
+          priority: 0
         },
         default: {
           priority: -20,
@@ -235,10 +236,10 @@ let webpackConfig = {
       {
         test: /\.(ts|tsx)$/,
         include: paths.appSrc,
-        use: [  
+        use: [
           {
             loader: 'babel-loader'
-          }, 
+          },
           {
             loader: require.resolve('ts-loader'),
             options: {
@@ -266,6 +267,10 @@ let webpackConfig = {
       // both options are optional
       filename: 'static/css/[name].[contenthash:8].css',
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: true,
+      checkSyntacticErrors: true
     }),
     new htmlWebpackPlugin(
       Object.assign(
@@ -308,14 +313,13 @@ if (isDevelopment) {
     devServer: {
       hot: true,
       contentBase: path.join(__dirname, "./client-dist"),
-      host: "0.0.0.0", 
+      host: "0.0.0.0",
       port: 8080,
       publicPath: '/public',
       historyApiFallback: {
         index: '/public/index.html'
-      }, 
+      },
       proxy: proxyTable,
-
     }
   })
 }
