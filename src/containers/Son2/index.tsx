@@ -22,9 +22,6 @@ class SonComponent extends React.Component<TopicDetailProps, TopicDetailState> {
     })
   }
 
-  componentWillMount () {
-    console.log('son2 componentWillMount')
-  }
   render () {
     return (
       <>
@@ -48,10 +45,10 @@ class SonComponent extends React.Component<TopicDetailProps, TopicDetailState> {
     console.log('son2 componentWillUpdate')
   }
   componentDidUpdate () {
-    console.log('son2 componentDidUpdate')    
+    console.log('son2 componentDidUpdate')
   }
   componentWillUnmount () {
-    console.log('son2 componentWillUnmount')    
+    console.log('son2 componentWillUnmount')
   }
 }
 

@@ -1,5 +1,11 @@
-export interface IIndexMLess {
-  'header': string;
+declare namespace IndexMLessModule {
+  export interface IIndexMLess {
+    'header': string;
+  }
 }
 
-export const locals: IIndexMLess;
+declare const IndexMLessModule: IndexMLessModule.IIndexMLess & {
+  locals: IndexMLessModule.IIndexMLess;
+};
+
+export = IndexMLessModule;

@@ -31,7 +31,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
       loader: MiniCssExtractPlugin.loader,
     },
     {
-      loader: require.resolve('typings-for-css-modules-loader'),
+      loader: require.resolve('typings-css-modules-loader'),
       options: cssOptions,
     },
     {
@@ -110,7 +110,7 @@ let webpackConfig = {
   //       },
   //       async: {
   //         chunks: 'async',
-  //         priority: 0          
+  //         priority: 0
   //       },
   //       default: {
   //         priority: -20,
@@ -140,8 +140,9 @@ let webpackConfig = {
         use: getStyleLoaders({
           importLoaders: 1,
           sourceMap: isProduction && shouldUseSourceMap,
-          modules: true,
-          localIdentName: "[local]_[hash:base64:5]"
+          modules: {
+            localIdentName: "[local]_[hash:base64:5]"
+          }
         })
       },
       {
@@ -166,8 +167,9 @@ let webpackConfig = {
           {
             importLoaders: 2,
             sourceMap: isProduction && shouldUseSourceMap,
-            modules: true,
-            localIdentName: "[local]_[hash:base64:5]"
+            modules: {
+              localIdentName: "[local]_[hash:base64:5]"
+            }
           },
           'less-loader'
         ),
@@ -187,10 +189,10 @@ let webpackConfig = {
       {
         test: /\.(ts|tsx)$/,
         include: paths.appSrc,
-        use: [  
+        use: [
           {
             loader: 'babel-loader'
-          }, 
+          },
           {
             loader: require.resolve('ts-loader'),
             options: {

@@ -188,8 +188,9 @@ let webpackConfig = {
         use: getStyleLoaders({
           importLoaders: 1,
           sourceMap: isProduction && shouldUseSourceMap,
-          modules: true,
-          localIdentName: "[local]_[hash:base64:5]"
+          modules: {
+            localIdentName: "[local]_[hash:base64:5]"
+          }
         })
       },
       {
@@ -214,9 +215,9 @@ let webpackConfig = {
           {
             importLoaders: 2,
             sourceMap: isProduction && shouldUseSourceMap,
-            modules: true,
-            localIdentName: "[local]_[hash:base64:5]"
-            // getLocalIdent: getCSSModuleLocalIdent,
+            modules: {
+              localIdentName: "[local]_[hash:base64:5]"
+            }
           },
           'less-loader'
         ),
